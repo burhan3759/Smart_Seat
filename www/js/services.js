@@ -47,4 +47,59 @@ angular.module('starter.services', [])
       return null;
     }
   };
+})
+
+.filter('numberFixedLen', function () {
+    return function (n, len) {
+        var num = parseInt(n, 10);
+        len = parseInt(len, 10);
+        if (isNaN(num) || isNaN(len)) {
+            return n;
+        }
+        num = ''+num;
+        while (num.length < len) {
+            num = '0'+num;
+        }
+        return num;
+    };
+})
+.constant('SW_DELAY', 1000)
+.factory('stepwatch', function (SW_DELAY, $timeout) {
+    var data = {
+        seconds: 0,
+        minutes: 0,
+        hours: 0
+    },
+    stopwatch = null;
+
+    var start = function () {
+        stopwatch = $timeout(function () {
+            data.seconds++;
+            if (data.seconds >= 60) {
+                data.seconds = 00;
+                data.minutes++;
+                if (data.minutes >= 60) {
+                    data.minutes = 0;
+                    data.hours++;
+                }
+            }
+            start();
+        }, SW_DELAY);
+    };
+
+    var stop = function () {
+        $timeout.cancel(stopwatch);
+        stopwatch = null;
+    };
+
+    var reset = function () {
+        stop()
+        data.seconds = 0;
+    };
+    return {
+        data: data,
+        start: start,
+        stop: stop,
+        reset: reset
+    };
 });
