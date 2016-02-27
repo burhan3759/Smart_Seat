@@ -1,1 +1,20 @@
 /* Empty. Add your own CSS if you like */
+
+/*Box design for timer*/
+
+#timerBox {
+    background-color: lightblue;
+    width: 100px;
+    padding: 15px;
+    border: 10px solid navy;
+}
+
+#progress {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 9em;
+  font-size: 1em;
+  text-align: center;
+  font-weight: 100;
+}

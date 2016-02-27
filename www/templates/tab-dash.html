@@ -4,7 +4,15 @@
       <center><p> The App that will change you sitting life</p> </center>
       <center><p> Stay Healty for longer Period</p></center>
 
-      
+<!--       <div>
+        <div id="timerBox">{{counter}}</div>
+         <button ng-click='startTime()'>Start</button> | <button ng-click='stopTimer()'>Stop</button>
+      </div> -->
+      <h1>{{myStopwatch.data.hours | numberFixedLen:2}}:{{myStopwatch.data.minutes | numberFixedLen:2}}:{{myStopwatch.data.seconds | numberFixedLen:2}}</h1>
+
+      <button ng-click='myStopwatch.start()'>Start</button>
+                <button ng-click='myStopwatch.stop()'>Stop</button>
+      <!-- <timer interval="1000">{{hours}} hours, {{minutes}} minutes, {{seconds}} seconds.</timer> -->
 
   </ion-content>
 </ion-view>
