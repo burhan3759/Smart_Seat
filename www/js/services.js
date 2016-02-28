@@ -65,6 +65,28 @@ angular.module('starter.services', [])
 })
 .constant('SW_DELAY', 1000)
 .factory('stepwatch', function (SW_DELAY, $timeout) {
+
+    var saveRecord = function(){
+    
+        console.log(data.minutes, data.seconds);
+        var Record = Parse.Object.extend("Record");
+        var record = new Record();
+
+        record.set("record", data);
+
+        record.save(null, {
+          success: function(record) {
+            // Execute any logic that should take place after the object is saved.
+            alert('New object created with objectId: ' + record.id);
+          },
+          error: function(record, error) {
+            // Execute any logic that should take place if the save fails.
+            // error is a Parse.Error with an error code and message.
+            alert('Failed to create new object, with error code: ' + error.message);
+          }
+        });
+    }
+
     var data = {
         seconds: 0,
         minutes: 0,
@@ -90,11 +112,13 @@ angular.module('starter.services', [])
     var stop = function () {
         $timeout.cancel(stopwatch);
         stopwatch = null;
+        saveRecord();
     };
 
     var reset = function () {
         stop()
         data.seconds = 0;
+
     };
     return {
         data: data,

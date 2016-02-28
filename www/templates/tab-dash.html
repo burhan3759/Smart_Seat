@@ -1,6 +1,6 @@
 <ion-view view-title="Dashboard">
   <ion-content class="padding">
-    <h2>Welcome to Smart Seat</h2>
+    <center><h2>Welcome to Smart Seat</h2></center>
       <center><p> The App that will change you sitting life</p> </center>
       <center><p> Stay Healty for longer Period</p></center>
 
@@ -9,6 +9,15 @@
       <button ng-click='myStopwatch.start()'>Start</button>
       <button ng-click='myStopwatch.stop()'>Stop</button>
       <!-- <timer interval="1000">{{hours}} hours, {{minutes}} minutes, {{seconds}} seconds.</timer> -->
+
+  	<div class="card">
+        <div class="item item-divider">
+            A line chart
+        </div>
+        <div class="item item-text-wrap">
+            <canvas id="line" class="chart chart-line" data="data" labels="labels" legend="true" series="series" options="{showTooltips: false}"></canvas>
+        </div>
+    </div>
 
   </ion-content>
 </ion-view>

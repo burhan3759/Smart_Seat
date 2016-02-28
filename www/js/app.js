@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.timer'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.timer', 'starter.timerServices'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -20,6 +20,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    Parse.initialize('EOlv7ERhLDZZKctV3Ruapy7RfGWB9S2y04Cu0K15', 'tZqbquqSZhRVLFL1ms1y2C49ow8Fpv7hGZ3PhXMB');
   });
 })
 
