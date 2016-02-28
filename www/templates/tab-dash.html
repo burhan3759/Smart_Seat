@@ -9,13 +9,13 @@
       <button ng-click='myStopwatch.start()'>Start</button>
       <button ng-click='myStopwatch.stop()'>Stop</button>
       <!-- <timer interval="1000">{{hours}} hours, {{minutes}} minutes, {{seconds}} seconds.</timer> -->
-
+      {{myStopwatch.points}}
   	<div class="card">
         <div class="item item-divider">
             A line chart
         </div>
         <div class="item item-text-wrap">
-            <canvas id="line" class="chart chart-line" data="data" labels="labels" legend="true" series="series" options="{showTooltips: false}"></canvas>
+            <canvas id="line" class="chart chart-line" data='myStopwatch.points' labels='myStopwatch.labels' legend="true" series='myStopwatch.series' options="{showTooltips: true}"></canvas>
         </div>
     </div>
 

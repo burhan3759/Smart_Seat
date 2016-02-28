@@ -44,7 +44,14 @@ angular.module('starter.timerServices', [])
         seconds: 0,
         minutes: 0,
         hours: 0
-    },
+    }
+
+    var rec = 'Hello';
+    var labels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    var series = ['Series A'];
+    var points = [
+        [data.seconds, 59, 80, 81, 56, 55, 40],
+    ]
     stopwatch = null;
 
     var start = function () {
@@ -77,6 +84,11 @@ angular.module('starter.timerServices', [])
         data: data,
         start: start,
         stop: stop,
-        reset: reset
+        reset: reset,
+        labels: labels,
+        series: series,
+        points: points,
+        rec: rec
     };
+    
 });
