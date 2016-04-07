@@ -1,6 +1,6 @@
-<ion-view view-title="Chats">
-  <ion-content>
-    <ion-list>
+<ion-view view-title="Bug">
+  <ion-content class="padding">
+<!--     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
         <img ng-src="{{chat.face}}">
         <h2>{{chat.name}}</h2>
@@ -11,6 +11,12 @@
           Delete
         </ion-option-button>
       </ion-item>
-    </ion-list>
+    </ion-list> -->
+    <div class="list">
+      <button class="button button-block button-positive" ng-click='onLight()'>Light On</button>
+      <button class="button button-block button-assertive" ng-click='offLight()'>Light Off</button>
+      <button class="button button-block button-royal" ng-click='buzzer()'>Buzzer Sound</button>
+    </div>
   </ion-content>
 </ion-view>
+

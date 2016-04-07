@@ -14,6 +14,13 @@ angular.module('starter.timer', ['chart.js'])
 
     $scope.onLight = function() {
         $http.get("http://192.168.0.18/onLight.php")
-   		console.log("success");
     }    
+
+    $scope.offLight = function() {
+        $http.get("http://192.168.0.18/offLight.php")
+    }
+
+    $scope.buzzer = function() {
+        $http.get("http://192.168.0.18/buzzer_sound.php")
+    }
 })

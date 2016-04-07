@@ -67,6 +67,16 @@ angular.module('starter', ['ionic','ionic.service.core','ngCordova', 'starter.co
         controller: 'TimerCtrl'
       }
     }
+  })
+
+  .state('tab.bug', {
+    url: '/Bug',
+    views: {
+      'tab-bug': {
+        templateUrl: 'templates/bug.html',
+        controller: 'TimerCtrl'
+      }
+    }
   });
 
   // if none of the above states are matched, use this as the fallback
