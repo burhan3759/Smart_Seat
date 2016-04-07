@@ -1,0 +1,13 @@
+<ion-view view-title="Dashboard">
+  <ion-content class="padding">
+    <center><h2>Welcome to Smart Seat</h2></center>
+      <center><p> The App that will change you sitting life</p> </center>
+      <center><p> Stay Healty for longer Period</p></center>
+
+      <center><h1>{{myStopwatch.data.hours | numberFixedLen:2}}:{{myStopwatch.data.minutes | numberFixedLen:2}}:{{myStopwatch.data.seconds | numberFixedLen:2}}</h1></center>
+
+      <button ng-click='myStopwatch.start()'>Start</button>
+      <button ng-click='myStopwatch.stop()'>Stop</button>
+      <!-- <timer interval="1000">{{hours}} hours, {{minutes}} minutes, {{seconds}} seconds.</timer> -->
+  </ion-content>
+</ion-view>
