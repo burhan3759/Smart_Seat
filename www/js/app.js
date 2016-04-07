@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.timer', 'starter.timerServices'])
+angular.module('starter', ['ionic','ionic.service.core','ngCordova', 'starter.controllers', 'starter.services', 'starter.timer', 'starter.timerServices'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -21,6 +21,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       StatusBar.styleDefault();
     }
     Parse.initialize('EOlv7ERhLDZZKctV3Ruapy7RfGWB9S2y04Cu0K15', 'tZqbquqSZhRVLFL1ms1y2C49ow8Fpv7hGZ3PhXMB');
+
+    var push = new Ionic.Push({
+      "debug": true
+    });
+ 
+    push.register(function(token) {
+      console.log("Device token:",token.token);
+    });
   });
 })
 
@@ -42,10 +50,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   // Each tab has its own nav history stack:
 
   .state('tab.dash', {
-    url: '/dash',
+    url: '/MainPage',
     views: {
       'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
+        templateUrl: 'templates/main_page.html',
         controller: 'TimerCtrl'
       }
     }
@@ -71,16 +79,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     })
 
   .state('tab.account', {
-    url: '/account',
+    url: '/ChartAnalysis',
     views: {
       'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+        templateUrl: 'templates/charts.html',
+        controller: 'TimerCtrl'
       }
     }
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/MainPage');
 
 });

@@ -14,30 +14,31 @@ angular.module('starter.timerServices', [])
         return num;
     };
 })
+
+//set a timer - get the data from database after this timer
 .constant('SW_DELAY', 1000)
 .factory('stepwatch', function (SW_DELAY, $timeout) {
 
 
 // this function is to save the record into parse - currently commented bcus not in use yet - all the command working find
-    var saveRecord = function(){
-    
+    var saveRecord = function(){    
         console.log(data.hours, data.minutes, data.seconds);
-        // var Record = Parse.Object.extend("Record");
-        // var record = new Record();
+        var Record = Parse.Object.extend("Record");
+        var record = new Record();
 
-        // record.set("record", data);
+        record.set("record", data);
 
-        // record.save(null, {
-        //   success: function(record) {
-        //     // Execute any logic that should take place after the object is saved.
-        //     alert('New object created with objectId: ' + record.id);
-        //   },
-        //   error: function(record, error) {
-        //     // Execute any logic that should take place if the save fails.
-        //     // error is a Parse.Error with an error code and message.
-        //     alert('Failed to create new object, with error code: ' + error.message);
-        //   }
-        // });
+        record.save(null, {
+          success: function(record) {
+            // Execute any logic that should take place after the object is saved.
+            alert('New object created with objectId: ' + record.id);
+          },
+          error: function(record, error) {
+            // Execute any logic that should take place if the save fails.
+            // error is a Parse.Error with an error code and message.
+            alert('Failed to create new object, with error code: ' + error.message);
+          }
+        });
     }
 
     var data = {
@@ -48,9 +49,10 @@ angular.module('starter.timerServices', [])
 
     var rec = 'Hello';
     var labels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-    var series = ['Series A'];
+    var series = ['Series A', 'Series B'];
     var points = [
         [data.seconds, 59, 80, 81, 56, 55, 40],
+        [data.minutes, 50, 70, 65, 33, 43, 90]
     ]
     stopwatch = null;
 
