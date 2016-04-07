@@ -39,4 +39,12 @@
     "gulp-git": "^1.2.4",
     "q": "^1.1.2"
   }
+  "cordovaPlugins": [
+    {
+      "variables": {
+        "SENDER_ID": "322766341970"
+      },
+      "locator": "phonegap-plugin-push"
+    }
+  ]
 }
