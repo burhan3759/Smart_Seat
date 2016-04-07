@@ -6,10 +6,14 @@
 angular.module('starter.timer', ['chart.js'])
 
 
-.controller('TimerCtrl', function($scope, $state, stepwatch) {
+.controller('TimerCtrl', function($scope, $state, stepwatch, $http) {
     $scope.myStopwatch = stepwatch;
     $scope.myStopwatch.start();
 
     var d = $scope.myStopwatch;
-    
+
+    $scope.onLight = function() {
+        $http.get("http://192.168.0.18/onLight.php")
+   		console.log("success");
+    }    
 })
